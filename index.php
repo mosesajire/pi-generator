@@ -14,7 +14,7 @@
         <h2 class="title">Pi GENERATOR</h2>
         <p class="welcome">Welcome to the Pi Generator. The digit represents the decimal place to which Pi will be generated.</p>
         <!-- Display the Pi Generator Form by default -->
-            <form action="index.php?action=generate" method="post" class="form">
+            <form action="index.php" method="post" class="form">
                 Enter a Digit (Maximum of 12):
                 <input type="number" name="digit" min="1" max="12" title="Enter a number between 1 and 12"><br>
                 <input type="submit" name="submit" value="Generate Pi" class="button">
@@ -24,8 +24,6 @@
             <div id="result">
         <?php
         // Validate the user's input and then generate the value for Pi.
-        if (isset($_GET['action']) && $_GET['action'] == "generate") {
-            // Confirm form submission
             if (isset($_POST['submit']) && !empty($_POST['submit'])) {
                 // Ensure that a number has been entered.
                 if (isset($_POST['digit']) && !empty($_POST['digit']) && is_numeric($_POST['digit'])) {
@@ -57,14 +55,9 @@
                     echo "<p>Please enter a valid number and try again.</p>";
                     echo "<p>Thank you.</p>";
                 }
-            } else {
-                    // Notify user to enter a value and then submit.
-                    echo "<p>Sorry, something went wrong.</p>";
-                    echo "<p>Please enter a value and click on GENERATE PI to submit.</p>";
-                    echo "<p>Thank you.</p>";
-                }
+            } 
                 echo "<center><a href=\"index.php\" class=\"refresh\">REFRESH</a></center>";
-        } 
+      //  } 
         ?>
         </div>
         </div>
