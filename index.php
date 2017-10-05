@@ -16,7 +16,7 @@
         <!-- Display the Pi Generator Form by default -->
             <form action="index.php" method="post" class="form">
                 Enter a Digit (Maximum of 12):
-                <input type="number" name="digit" min="1" max="12" title="Enter a number between 1 and 12"><br>
+                <input type="number" name="digit" min="1" max="12" required="required" title="Enter a number between 1 and 12"><br>
                 <input type="submit" name="submit" value="Generate Pi" class="button">
                 <input type="reset" name="Reset"  value="Reset Digit" class="button">
             </form>
@@ -24,14 +24,14 @@
             <div id="result">
         <?php
         // Validate the user's input and then generate the value for Pi.
-            if (isset($_POST['submit']) && !empty($_POST['submit'])) {
+            if (isset($_POST['submit'])) {
                 // Ensure that a number has been entered.
                 if (isset($_POST['digit']) && !empty($_POST['digit']) && is_numeric($_POST['digit'])) {
                     // Then obtain the number entered.
                     $digit = htmlentities(trim($_POST['digit']));
                     // Now generate the value of Pi.
-                    $result = round(Pi(), $digit);
-                    // Append properly
+                    $result = round(pi(), $digit);
+                    // Append properly.
                     if ($digit == 1) {
                         $append = "st"; // as in 1st
                     }
@@ -49,12 +49,7 @@
                     echo "<p>" . "Dear Guest, the value of Pi to the <b>{$digit}{$append}</b> digit is <b>{$result}</b>" . "</p>";
                     echo "<p>" . "Thank you for using the Pi Generator." . "</p>";
                     
-                } else {
-                    // Notify user to enter a valid number.
-                    echo "<p>Sorry, something went wrong.</p>";
-                    echo "<p>Please enter a valid number and try again.</p>";
-                    echo "<p>Thank you.</p>";
-                }
+                } 
             } 
                 echo "<center><a href=\"index.php\" class=\"refresh\">REFRESH</a></center>";
       //  } 
@@ -63,4 +58,3 @@
         </div>
     </body>
 </html>
-    
