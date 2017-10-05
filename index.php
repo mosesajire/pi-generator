@@ -29,6 +29,9 @@
                 if (isset($_POST['digit']) && !empty($_POST['digit']) && is_numeric($_POST['digit'])) {
                     // Then obtain the number entered.
                     $digit = htmlentities(trim($_POST['digit']));
+                    
+                    if ($digit > 0 && $digit < 13) {
+                    
                     // Now generate the value of Pi.
                     $result = round(pi(), $digit);
                     // Append properly.
@@ -49,7 +52,20 @@
                     echo "<p>" . "Dear Guest, the value of Pi to the <b>{$digit}{$append}</b> digit is <b>{$result}</b>" . "</p>";
                     echo "<p>" . "Thank you for using the Pi Generator." . "</p>";
                     
-                } 
+                } else {
+                    // The number must be between 1 and 12.
+                    echo "<p>Sorry, something went wrong.</p>";
+                    echo "<p>Please enter a value that is a minimum of 1 and maximum of 12.</p>";
+                    echo "<p>Thank you.</p>";
+                }
+                
+                }
+                else {
+                    // Notify user to enter a value and then submit.
+                    echo "<p>Sorry, something went wrong.</p>";
+                    echo "<p>Please enter a valid number and click on GENERATE PI to submit.</p>";
+                    echo "<p>Thank you.</p>";
+                }
             } 
                 echo "<center><a href=\"index.php\" class=\"refresh\">REFRESH</a></center>";
       //  } 
