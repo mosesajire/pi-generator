@@ -68,7 +68,6 @@
                 }
             } 
                 echo "<center><a href=\"index.php\" class=\"refresh\">REFRESH</a></center>";
-      //  } 
         ?>
         </div>
         </div>
