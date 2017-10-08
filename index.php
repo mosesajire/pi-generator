@@ -16,7 +16,7 @@
         <!-- Display the Pi Generator Form by default -->
             <form action="index.php" method="post" class="form">
                 Enter a Digit (Maximum of 12):
-                <input type="number" name="digit" min="1" max="12" required="required" title="Enter a number between 1 and 12"><br>
+                <input type="number" name="digit" min="1" max="12" required="required" title="Enter a number between 1 and 12"><br> 
                 <input type="submit" name="submit" value="Generate Pi" class="button">
                 <input type="reset" name="Reset"  value="Reset Digit" class="button">
             </form>
@@ -28,7 +28,7 @@
                 // Ensure that a number has been entered.
                 if (isset($_POST['digit']) && !empty($_POST['digit']) && is_numeric($_POST['digit'])) {
                     // Then obtain the number entered.
-                    $digit = htmlentities(trim($_POST['digit']));
+                    $digit = trim(round($_POST['digit'], 0));
                     
                     if ($digit > 0 && $digit < 13) {
                     
