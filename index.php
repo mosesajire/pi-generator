@@ -14,7 +14,7 @@
         <h2 class="title">Pi GENERATOR</h2>
         <p class="welcome">Welcome to the Pi Generator. The digit represents the decimal place to which Pi will be generated.</p>
         <!-- Display the Pi Generator Form by default -->
-            <form action="index.php" method="post" class="form">
+            <form action="<?php echo htmlentities($_SERVER["PHP_SELF"]) ?>" method="post" class="form">
                 Enter a Digit (Maximum of 12):
                 <input type="number" name="digit" min="1" max="12" required="required" title="Enter a number between 1 and 12"><br> 
                 <input type="submit" name="submit" value="Generate Pi" class="button">
